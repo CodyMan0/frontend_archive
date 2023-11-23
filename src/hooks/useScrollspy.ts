@@ -1,9 +1,9 @@
 import * as React from "react";
 
-export function useScrollSpy(
+const useScrollSpy = (
   selectors: string[],
   options?: IntersectionObserverInit
-) {
+) =>  {
   const [activeId, setActiveId] = React.useState<string | null>();
   const observer = React.useRef<IntersectionObserver | null>(null);
   React.useEffect(() => {
@@ -26,3 +26,5 @@ export function useScrollSpy(
 
   return activeId;
 }
+
+export default useScrollSpy
