@@ -25,7 +25,7 @@ import { useRouter } from "next/router";
 import { AiOutlineMenu } from "react-icons/ai";
 import { RemoveScroll } from "react-remove-scroll";
 import Logo from "@/components/layout/logo";
-import { SidebarContent } from "./sidebar/sidebar";
+// import { SidebarContent } from "./sidebar/sidebar";
 
 import headerNav from "@/data/header-nav";
 import useRouteChanged from "@/hooks/useRouteChanged";
@@ -160,10 +160,10 @@ export function MobileNavContent(props: MobileNavContentProps) {
                   setShadow(scrolled ? "md" : undefined);
                 }}
               >
-                <SidebarContent
+                {/* <SidebarContent
                   pathname={pathname}
                   routes={getRoutes(asPath)}
-                />
+                /> */}
               </ScrollView>
             </Flex>
           </motion.div>
