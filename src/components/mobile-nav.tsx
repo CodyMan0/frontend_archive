@@ -40,7 +40,7 @@ function NavLink({ href, children, label, isActive, ...rest }: NavLinkProps) {
   const { pathname } = useRouter();
   const bgActiveHoverColor = useColorModeValue("gray.100", "whiteAlpha.100");
 
-  const [, group] = href.split("/");
+  const [, group] = (href || "").split("/");
   isActive = isActive ?? pathname.includes(group);
 
   return (
@@ -71,107 +71,107 @@ interface MobileNavContentProps {
   onClose?: () => void;
 }
 
-export function MobileNavContent(props: MobileNavContentProps) {
-  const { isOpen, onClose } = props;
-  const closeBtnRef = React.useRef<HTMLButtonElement>();
-  const { pathname, asPath } = useRouter();
-  const bgColor = useColorModeValue("whiteAlpha.900", "blackAlpha.900");
+// export function MobileNavContent(props: MobileNavContentProps) {
+//   const { isOpen, onClose } = props;
+//   const closeBtnRef = React.useRef<HTMLButtonElement>();
+//   const { pathname, asPath } = useRouter();
+//   const bgColor = useColorModeValue("whiteAlpha.900", "blackAlpha.900");
 
-  useRouteChanged(onClose);
+//   useRouteChanged(onClose);
 
-  /**
-   * Scenario: Menu is open on mobile, and user resizes to desktop/tablet viewport.
-   * Result: We'll close the menu
-   */
-  const showOnBreakpoint = useBreakpointValue({ base: true, lg: false });
+//   /**
+//    * Scenario: Menu is open on mobile, and user resizes to desktop/tablet viewport.
+//    * Result: We'll close the menu
+//    */
+//   const showOnBreakpoint = useBreakpointValue({ base: true, lg: false });
 
-  React.useEffect(() => {
-    if (showOnBreakpoint == false) {
-      onClose();
-    }
-  }, [showOnBreakpoint, onClose]);
+//   React.useEffect(() => {
+//     if (showOnBreakpoint == false) {
+//       onClose();
+//     }
+//   }, [showOnBreakpoint, onClose]);
 
-  useUpdateEffect(() => {
-    if (isOpen) {
-      requestAnimationFrame(() => {
-        closeBtnRef.current?.focus();
-      });
-    }
-  }, [isOpen]);
+//   useUpdateEffect(() => {
+//     if (isOpen) {
+//       requestAnimationFrame(() => {
+//         closeBtnRef.current?.focus();
+//       });
+//     }
+//   }, [isOpen]);
 
-  const [shadow, setShadow] = React.useState<string>();
+//   const [shadow, setShadow] = React.useState<string>();
 
-  return (
-    <AnimatePresence>
-      {isOpen && (
-        <RemoveScroll forwardProps>
-          <motion.div
-            transition={{ duration: 0.08 }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <Flex
-              direction="column"
-              w="100%"
-              bg={bgColor}
-              h="100vh"
-              overflow="auto"
-              position="fixed"
-              top="0"
-              left="0"
-              zIndex="sticky"
-              pb="8"
-              backdropFilter="blur(5px)"
-            >
-              <Box>
-                <Flex justify="space-between" px="8" pt="4" pb="4">
-                  <Logo />
-                  <HStack spacing="5">
-                    <CloseButton ref={closeBtnRef} onClick={onClose} />
-                  </HStack>
-                </Flex>
-                <Grid
-                  px="6"
-                  pb="6"
-                  pt="2"
-                  shadow={shadow}
-                  templateColumns="repeat(2, 1fr)"
-                  gap="2"
-                >
-                  {headerNav.map(
-                    ({ href, id, title, colorScheme, ...props }, i) => {
-                      return (
-                        <NavLink
-                          href={href || `/#${id}`}
-                          key={i}
-                          {...(props as any)}
-                        >
-                          {title}
-                        </NavLink>
-                      );
-                    }
-                  )}
-                </Grid>
-              </Box>
+//   return (
+//     <AnimatePresence>
+//       {isOpen && (
+//         <RemoveScroll forwardProps>
+//           <motion.div
+//             transition={{ duration: 0.08 }}
+//             initial={{ opacity: 0 }}
+//             animate={{ opacity: 1 }}
+//             exit={{ opacity: 0 }}
+//           >
+//             <Flex
+//               direction="column"
+//               w="100%"
+//               bg={bgColor}
+//               h="100vh"
+//               overflow="auto"
+//               position="fixed"
+//               top="0"
+//               left="0"
+//               zIndex="sticky"
+//               pb="8"
+//               backdropFilter="blur(5px)"
+//             >
+//               <Box>
+//                 <Flex justify="space-between" px="8" pt="4" pb="4">
+//                   <Logo />
+//                   <HStack spacing="5">
+//                     <CloseButton ref={closeBtnRef} onClick={onClose} />
+//                   </HStack>
+//                 </Flex>
+//                 <Grid
+//                   px="6"
+//                   pb="6"
+//                   pt="2"
+//                   shadow={shadow}
+//                   templateColumns="repeat(2, 1fr)"
+//                   gap="2"
+//                 >
+//                   {headerNav.map(
+//                     ({ href, id, title, colorScheme, ...props }, i) => {
+//                       return (
+//                         <NavLink
+//                           href={href || `/#${id}`}
+//                           key={i}
+//                           {...(props as any)}
+//                         >
+//                           {title}
+//                         </NavLink>
+//                       );
+//                     }
+//                   )}
+//                 </Grid>
+//               </Box>
 
-              <ScrollView
-                onScroll={(scrolled) => {
-                  setShadow(scrolled ? "md" : undefined);
-                }}
-              >
-                {/* <SidebarContent
-                  pathname={pathname}
-                  routes={getRoutes(asPath)}
-                /> */}
-              </ScrollView>
-            </Flex>
-          </motion.div>
-        </RemoveScroll>
-      )}
-    </AnimatePresence>
-  );
-}
+//               <ScrollView
+//                 onScroll={(scrolled: any) => {
+//                   setShadow(scrolled ? "md" : undefined);
+//                 }}
+//               >
+//                 {/* <SidebarContent
+//                   pathname={pathname}
+//                   routes={getRoutes(asPath)}
+//                 /> */}
+//               </ScrollView>
+//             </Flex>
+//           </motion.div>
+//         </RemoveScroll>
+//       )}
+//     </AnimatePresence>
+//   );
+// }
 
 const ScrollView = (props: BoxProps & { onScroll?: any }) => {
   const { onScroll, ...rest } = props;
@@ -205,7 +205,6 @@ export const MobileNavButton = React.forwardRef(
       <IconButton
         ref={ref}
         display={{ base: "flex", lg: "none" }}
-        aria-label="Open menu"
         fontSize="20px"
         color={useColorModeValue("gray.800", "inherit")}
         variant="ghost"

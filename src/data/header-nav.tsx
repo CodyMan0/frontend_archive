@@ -18,6 +18,11 @@ const headerNav: NavLinkProps[] = [
     label: "About",
     ...hideMobile,
   },
+  {
+    href: "/components",
+    label: "Components",
+    ...hideMobile,
+  },
 ];
 
 export default headerNav;

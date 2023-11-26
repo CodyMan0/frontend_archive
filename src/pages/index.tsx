@@ -50,6 +50,7 @@ export default function Home() {
         id="home"
         alignItems="center"
         textAlign="center"
+        title=""
         description={
           <FallInPlace
             delay={0.4}
