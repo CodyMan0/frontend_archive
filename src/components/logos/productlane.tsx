@@ -1,6 +1,6 @@
 import { chakra, useColorModeValue } from "@chakra-ui/react";
 
-export const ProductLaneLogo = (props) => {
+export const ProductLaneLogo = (props: any) => {
   return (
     <chakra.svg
       viewBox="0 0 17 22"
