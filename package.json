@@ -10,13 +10,18 @@
   },
   "dependencies": {
     "@chakra-ui/react": "^2.8.2",
+    "@chakra-ui/theme-tools": "^2.1.2",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@saas-ui/nprogress": "^2.0.1",
+    "@saas-ui/react": "^2.4.2",
     "framer-motion": "^10.16.5",
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18",
-    "react-intersection-observer": "^9.5.3"
+    "react-icons": "^4.12.0",
+    "react-intersection-observer": "^9.5.3",
+    "react-remove-scroll": "^2.5.7"
   },
   "devDependencies": {
     "@types/node": "^20",

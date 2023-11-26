@@ -44,6 +44,28 @@ export default function Home() {
           </FallInPlace>
         }
       ></Hero>
+
+      <Hero
+        as={Stack}
+        id="home"
+        alignItems="center"
+        textAlign="center"
+        description={
+          <FallInPlace
+            delay={0.4}
+            fontWeight="medium"
+            textAlign="center"
+            color="gray.600"
+            _dark={{ color: "gray.400" }}
+            fontSize={{ base: "md", md: "xl", lg: "2xl" }}
+            initialInView
+            pt="12"
+            pb="12"
+          >
+            현재 개발 중 좋은 아이디어 있으면 알려주세요
+          </FallInPlace>
+        }
+      ></Hero>
     </>
   );
 }
