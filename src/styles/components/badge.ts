@@ -4,7 +4,7 @@ type Dict = Record<string, any>
 
 const badgeTheme = {
   variants: {
-    outline: (props) => {
+    outline: (props:any) => {
       const { colorScheme: c } = props
       return {
         boxShadow: 'none',
