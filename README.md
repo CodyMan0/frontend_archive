@@ -1,3 +1,9 @@
-# 빠른 개발을 위한 훅 모음
+# 빠른 웹 개발을 작은 실험 레포
 
-Vercel, Supabase, Notion, Figma 등등, 해외 개발자들이 진행중인 프로젝트의 레포를 통해 알게 된 hooks를 정리하는 레포입니다.
+베포 링크 😍 : https://codyman-dev-world.vercel.app/
+
+## Description
+
+1. 미국의 소스코드를 분석하여 모방하여 의존성을 제거하여 공유하기 위해 노력합니다.
+2. Operate and manage 여러 작은 실험을 통해 확장해나가려고 합니다.
+3. View analytics and 피드백과 많은 참여 부탁드립니다.
